@@ -9,7 +9,7 @@ mTLS in Go.
 
 2. Start the server in the terminal.
 
-`$ go run . --server=true`
+`$ go run . --server`
 
 3. Start the client in a different terminal.
 

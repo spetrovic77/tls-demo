@@ -17,7 +17,7 @@ import (
 )
 
 var (
-	flagServer = flag.Bool("server", true, "")
+	flagServer = flag.Bool("server", false, "")
 
 	clientCert, serverCert tls.Certificate
 	caCertPool             *x509.CertPool
