@@ -13,7 +13,7 @@ mTLS in Go.
 
 3. Start the client in a different terminal.
 
-`$ go run . --server=false`
+`$ go run .`
 
 ## Key re-generation
 
