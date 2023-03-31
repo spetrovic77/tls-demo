@@ -29,21 +29,23 @@ func init() {
 		panic("no caller info")
 	}
 
+	dir := filepath.Join(filepath.Dir(fname), "keys")
+
 	// Load client/server certs.
-	cc := filepath.Join(filepath.Dir(fname), "client.crt")
-	ck := filepath.Join(filepath.Dir(fname), "client.key")
+	cc := filepath.Join(dir, "client.crt")
+	ck := filepath.Join(dir, "client.key")
 	var err error
 	if clientCert, err = tls.LoadX509KeyPair(cc, ck); err != nil {
 		panic(err)
 	}
-	sc := filepath.Join(filepath.Dir(fname), "server.crt")
-	sk := filepath.Join(filepath.Dir(fname), "server.key")
+	sc := filepath.Join(dir, "server.crt")
+	sk := filepath.Join(dir, "server.key")
 	if serverCert, err = tls.LoadX509KeyPair(sc, sk); err != nil {
 		panic(err)
 	}
 
 	// Load CA cert.
-	caCert, err := os.ReadFile(filepath.Join(filepath.Dir(fname), "ca.pem"))
+	caCert, err := os.ReadFile(filepath.Join(dir, "ca.pem"))
 	if err != nil {
 		log.Fatal(err)
 	}
